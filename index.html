@@ -2,10 +2,6 @@
 html, body { height: 100%; }
 body { margin: 0; font: 16px/1.3 sans-serif; }
 
-/*
-PURE RESPONSIVE CSS3 SLIDESHOW GALLERY by Roko C. buljan
-http://stackoverflow.com/a/34696029/383904
-*/
 
 .CSSgal {
 	position: relative;
@@ -13,7 +9,6 @@ http://stackoverflow.com/a/34696029/383904
 	height: 100%; /* Or set a fixed height */
 }
 
-/* SLIDER */
 
 .CSSgal .slider {
 	height: 100%;
@@ -22,7 +17,6 @@ http://stackoverflow.com/a/34696029/383904
 	transition: 0.8s;
 }
 
-/* SLIDES */
 
 .CSSgal .slider > * {
 	font-size: 1rem;
@@ -35,7 +29,7 @@ http://stackoverflow.com/a/34696029/383904
 	background-size: cover;
 }
 
-/* PREV/NEXT, CONTAINERS & ANCHORS */
+
 
 .CSSgal .prevNext {
 	position: absolute;
@@ -71,7 +65,7 @@ http://stackoverflow.com/a/34696029/383904
 	right: 0;
 }
 
-/* NAVIGATION */
+
 
 .CSSgal .bullets {
 	position: absolute;
@@ -97,41 +91,26 @@ http://stackoverflow.com/a/34696029/383904
 }
 .CSSgal .bullets > a:hover {
 	background: rgba(255, 255, 255, 0.7) !important;
-}
 
-/* NAVIGATION BUTTONS */
-/* ALL: */
 .CSSgal >s:target ~ .bullets >* {      background: rgba(255, 255, 255, 0.5);}
-/* ACTIVE */
+
 #s1:target ~ .bullets >*:nth-child(1) {background: rgba(255, 255, 255,   1);}
 #s2:target ~ .bullets >*:nth-child(2) {background: rgba(255, 255, 255,   1);}
 #s3:target ~ .bullets >*:nth-child(3) {background: rgba(255, 255, 255,   1);}
 #s4:target ~ .bullets >*:nth-child(4) {background: rgba(255, 255, 255,   1);}
-/* More slides? Add here more rules */
 
-/* PREV/NEXT CONTAINERS VISIBILITY */
-/* ALL: */
 .CSSgal >s:target ~ .prevNext >* {      visibility: hidden;}
-/* ACTIVE: */
+
 #s1:target ~ .prevNext >*:nth-child(1) {visibility: visible;}
 #s2:target ~ .prevNext >*:nth-child(2) {visibility: visible;}
 #s3:target ~ .prevNext >*:nth-child(3) {visibility: visible;}
 #s4:target ~ .prevNext >*:nth-child(4) {visibility: visible;}
-/* More slides? Add here more rules */
 
-/* SLIDER ANIMATION POSITIONS */
 
 #s1:target ~ .slider {transform: translateX(   0%); -webkit-transform: translateX(   0%);}
 #s2:target ~ .slider {transform: translateX(-100%); -webkit-transform: translateX(-100%);}
 #s3:target ~ .slider {transform: translateX(-200%); -webkit-transform: translateX(-200%);}
 #s4:target ~ .slider {transform: translateX(-300%); -webkit-transform: translateX(-300%);}
-/* More slides? Add here more rules */
-
-
-/* YOU'RE THE DESIGNER! 
-   ____________________
-   All above was mainly to get it working :)
-   CSSgal CUSTOM STYLES / OVERRIDES HERE: */
 
 .CSSgal{
 	color: #fff;	
