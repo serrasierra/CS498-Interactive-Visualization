@@ -198,22 +198,17 @@ d3.csv("https://raw.githubusercontent.com/serrasierra/serrasierra.github.io/mast
   var z = d3.scaleLinear().domain([3,10]).range([5,10]);
   var myColor =   d3.scaleOrdinal().domain([4,6,8]).range(["#4e79a7","#f28e2c","#e15759"]);
 
-  // Add a scale for bubble color
-var myColor = d3.scaleOrdinal()
-    .domain([3, 4, 5, 6, 7, 8, 9, 10])
- 	.range(["#e41a1c","#377eb8","#4daf4a",
- 	"#984ea3","#ff7f00","#ffff33","#a65628"])
-
 
 
  var tooltip = d3.select("#svgContainer").append("div").style("opacity",0).attr("class","tooltip") .style("background-color","black")
       .style("border-radius","5px")
       .style("padding","10px")
       .style("color","white")
+      .style("text-align", "left")
 
   var showTooltip = function(d) {
     tooltip.transition().duration(200)
-    tooltip.style("opacity",1).html("Car make and model: ")
+    tooltip.style("opacity",1).html("Car: " + d.name + "<br>Horsepower: " + d.horsepower + "<br># of Cylinders: " + d.cylinders +  "<br>MPG: " + d.mpg + "<br>Weight: " + d.weight +"lbs")
       .style("left",(d3.mouse(this)[0]+30) + "px")
       .style("top",(d3.mouse(this)[1]+30) + "px")
   }
@@ -236,10 +231,31 @@ var myColor = d3.scaleOrdinal()
     	.on("mouseover",showTooltip)
     	.on("mousemove",moveTooltip)
     	.on("mouseleave",hideTooltip)
+        
+
+  var legend = svg.selectAll(".legend")
+     .data([4,6,8])//hard coding the labels as the datset may have or may not have but legend should be complete.
+.enter().append("g")
+     .attr("class", "legend")
+     .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
+
+// draw legend colored rectangles
+legend.append("rect")
+     .attr("x", width - 18)
+     .attr("width", 18)
+     .attr("height", 18)
+     .style("fill", function(d){return myColor(d)});
+
+// draw legend text
+legend.append("text")
+     .attr("x", width - 24)
+     .attr("y", 9)
+     .attr("dy", ".35em")
+     .style("text-anchor", "end")
+     .text(function(d) { return d + " cylinders";});  
      
   })
   
-
 
 var slideIndex = 1;
 showSlides(slideIndex);
