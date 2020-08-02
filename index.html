@@ -157,7 +157,7 @@ d3.select("#svgContainer")
   .append("g")
   .attr("transform","translate(" + margin.left + "," + margin.top + ")");
 
-d3.csv("https://gist.githubusercontent.com/omarish/5687264/raw/7e5c814ce6ef33e25d5259c1fe79463c190800d9/mpg.csv",function(data) {
+d3.csv("https://raw.githubusercontent.com/serrasierra/serrasierra.github.io/master/mpg-csv.csv",function(data) {
   var x = d3.scaleLinear()
   .domain([0,50])
   .range([0,width]);
@@ -220,11 +220,42 @@ d3.csv("https://gist.githubusercontent.com/omarish/5687264/raw/7e5c814ce6ef33e25
     .on("mouseover",showTooltip)
     .on("mousemove",moveTooltip)
     .on("mouseleave",hideTooltip)
-  d3.selectAll("circle").filter(function(d) { 
-    return d.horsepower == "?"; 
-})
-.remove();
   })
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 var slideIndex = 1;
