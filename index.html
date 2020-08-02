@@ -220,6 +220,10 @@ d3.csv("https://gist.githubusercontent.com/omarish/5687264/raw/7e5c814ce6ef33e25
     .on("mouseover",showTooltip)
     .on("mousemove",moveTooltip)
     .on("mouseleave",hideTooltip)
+  d3.selectAll("circle").filter(function(d) { 
+    return d.horsepower == "?"; 
+})
+.remove();
   })
 
 
