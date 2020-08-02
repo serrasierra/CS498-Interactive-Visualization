@@ -109,9 +109,7 @@ img {vertical-align: middle;}
   <div class="slideContent">
   	<h1> Evolution of Fuel Efficiency in Cars</h1>
     <p> Since the birth of the modern car in 1886, humans have relied mostly on gasoline to fuel their cars. Throughout most of the 1900s, there wasn't much advocacy for better fuel efficiency in cars. It wasn't until 1975, when congress passed the Energy Policy and Conservation Act of 1975, which established fuel economy standards for cars starting with the model year 1978. By 1985 cars would be expected to have doubled their fuel efficiency to a respectable 27.5 MPG.</p>
-<br><br>
-<div id="svgContainer"></div>
-<p>Check out the next slide to learn about the next major legislation to affect fuel efficiency standards across the US</p>
+<p>Check out the next slide to see a chart of the relation between horsepower and MPG in cars from the 1970s and 1980s</p>
    
   </div>
 </div>
@@ -119,14 +117,10 @@ img {vertical-align: middle;}
 <div class="mySlides fade">
   <div class="numbertext">2 / 3</div>
     <div class="slideContent">
-  	<h2>The Next Big Step in Fuel Efficiency Standards</h2>
-    <p>In 2009, after years of minimal change in fuel efficiency standards, the Federal government, state regulators and the auto 
-      industry reached a historic agreement and established a new national program. This program would establish guidelines to be 
-      met during the following two decades, by 2030 cars would need to meet a 50 MPG standard. Cars have been getting more efficient 
-      in recent years and the 2030 target of 50 MPG seems to be attainable. With Electric cars entering the market in recent years and 
-      car companies starting to phase out gasoline models we're in for a new era of efficiency and environmentally friendly travel.</p>
-<div id="svgContainer2"></div>
+  	<h1>Horsepower Vs. MPG</h1>
+<div id="svgContainer"></div>
 <br><br>
+<p>This scatterplot shows us how having a more powerful car will also make it less efficient. It would seem that the answer to more efficiency is to make cars less powerful, but that's not entirely true, while smaller engines are usually more efficient, newer technologies, such as electric engines, allow cars to be efficient and also extremely powerful.</p>
 <p>Check out the next slide to learn about the next major legislation to affect fuel efficiency standards across the US</p>
    
   </div>
@@ -134,6 +128,13 @@ img {vertical-align: middle;}
 
 <div class="mySlides fade">
   <div class="numbertext">3 / 3</div>
+  <div class="slideContent">
+  <h2>The Next Big Step in Fuel Efficiency Standards</h2>
+    <p>In 2009, after years of minimal change in fuel efficiency standards, the Federal government, state regulators and the auto 
+      industry reached a historic agreement and established a new national program. This program would establish guidelines to be 
+      met during the following two decades, by 2030 cars would need to meet a 50 MPG standard. Cars have been getting more efficient 
+      in recent years and the 2030 target of 50 MPG seems to be attainable. With Electric cars entering the mass market in recent years and bringing with them incredible performance without relying on gasoline engines it's easy to see why car companies are starting to phase out gasoline models. It seems we're in for a new era of efficient, powerful and environmentally friendly travel. </p>
+</div>
 </div>
 
 <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
@@ -225,14 +226,12 @@ var myColor = d3.scaleOrdinal()
       .attr("cx",function(d) { return x(d.mpg); } )
       .attr("cy",function(d) { return y(d.horsepower); } )
       .attr("r",function(d) { return z(d.cylinders); } )
-      .style("fill",function(d) { return myColor(d.name.split(" ")[0]); } )
+      .style("fill", "#69b3a2")
     .on("mouseover",showTooltip)
     .on("mousemove",moveTooltip)
     .on("mouseleave",hideTooltip)
   })
   
-  
-
 
 
 
@@ -297,3 +296,4 @@ function showSlides(n) {
 
 </body>
 </html> 
+
