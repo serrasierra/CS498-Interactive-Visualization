@@ -186,12 +186,16 @@ d3.csv("https://raw.githubusercontent.com/serrasierra/serrasierra.github.io/mast
   .text("Horsepower")
   .attr("transform","rotate(-90)");
 
-  // Add a scale for bubble size
-  var z = d3.scaleLinear().domain([1,300]).range([7,12]);
+   // Add a scale for bubble size
+  var z = d3.scaleLinear().domain([3,10]).range([4,8]);
 
   // Add a scale for bubble color
-  var myColor = d3.scaleOrdinal().domain(["Mazda","Datsun","Hornet","Valiant","Duster","Merc","Cadillac","Lincoln","Chrysler","Fiat","Honda","Toyota"
-                ,"Dodge","AMC","Camaro","Pontiac","Porsche","Lotus","Ford","Ferrari","Maserati","Volvo"]).range(d3.schemeSet3);
+var myColor = d3.scaleOrdinal()
+    .domain([3, 4, 5, 6, 7, 8, 9, 10])
+ 	.range(["#e41a1c","#377eb8","#4daf4a",
+ 	"#984ea3","#ff7f00","#ffff33","#a65628"])
+
+
 
   var tooltip = d3.select("#svg_container").append("div").style("opacity",0).attr("class","tooltip") .style("background-color","black")
       .style("border-radius","5px")
