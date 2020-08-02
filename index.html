@@ -147,7 +147,7 @@ img {vertical-align: middle;}
 
 var margin = {top:10,right:20,bottom:30,left:50},
     width = 500 - margin.left - margin.right,
-    height = 300 - margin.top - margin.bottom;
+    height = 300;
 
 var svg = 
 d3.select("#svgContainer")
@@ -158,9 +158,8 @@ d3.select("#svgContainer")
   .attr("transform","translate(" + margin.left + "," + margin.top + ")");
 
 d3.csv("https://gist.githubusercontent.com/omarish/5687264/raw/7e5c814ce6ef33e25d5259c1fe79463c190800d9/mpg.csv",function(data) {
-  console.log(data);
   var x = d3.scaleLinear()
-  .domain([0,10])
+  .domain([0,50])
   .range([0,width]);
   svg
   .append("g")
@@ -169,22 +168,22 @@ d3.csv("https://gist.githubusercontent.com/omarish/5687264/raw/7e5c814ce6ef33e25
   svg
   .append("text")
   .attr("x",220)
-  .attr("y",460)
-  .style("text-anchor","middle").text("Engine Cylinders");
+  .attr("y",330)
+  .style("text-anchor","middle").text("MPG");
 
   var y = 
   d3.scaleLinear()
-  .domain([0,36])
+  .domain([0,300])
   .range([height,0]);
   svg.append("g")
   .call(d3
   .axisLeft(y));
   svg
   .append("text")
-  .attr("x",-235)
-  .attr("y",-25)
+  .attr("x",-130)
+  .attr("y",-30)
   .style("text-anchor","middle")
-  .text("MPG")
+  .text("Horsepower")
   .attr("transform","rotate(-90)");
 
   // Add a scale for bubble size
@@ -201,8 +200,7 @@ d3.csv("https://gist.githubusercontent.com/omarish/5687264/raw/7e5c814ce6ef33e25
 
   var showTooltip = function(d) {
     tooltip.transition().duration(200)
-    tooltip.style("opacity",1).html("Make: " + d.name + "<br>Horsepower: " + d.horsepower + "<br>Engine Cylinders: " + d.cylinders + 
-                                   "<br>MPG: " + d.mpg + "<br>Weight (lbs): " + d.weight)
+    tooltip.style("opacity",1).html("Make: " + d.name + "<br>Horsepower: " + d.horsepower + "<br>Engine Cylinders: " + d.cylinders + "<br>MPG: " + d.mpg + "<br>Weight (lbs): " + d.weight)
       .style("left",(d3.mouse(this)[0]+30) + "px")
       .style("top",(d3.mouse(this)[1]+30) + "px")
   }
@@ -215,15 +213,14 @@ d3.csv("https://gist.githubusercontent.com/omarish/5687264/raw/7e5c814ce6ef33e25
 
   // Add dots
   svg.append('g').selectAll("dot").data(data).enter().append("circle").attr("class","bubbles")
-      .attr("cx",function(d) { return x(d.cylinders); } )
-      .attr("cy",function(d) { return y(d.mpg); } )
-      .attr("r",function(d) { return z(d.horsepower); } )
+      .attr("cx",function(d) { return x(d.mpg); } )
+      .attr("cy",function(d) { return y(d.horsepower); } )
+      .attr("r",function(d) { return z(d.cylinders); } )
       .style("fill",function(d) { return myColor(d.name.split(" ")[0]); } )
     .on("mouseover",showTooltip)
     .on("mousemove",moveTooltip)
     .on("mouseleave",hideTooltip)
   })
-
 
 
 var slideIndex = 1;
